@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FROM DB</title>
+</head>
+<body>
+    <div>
+        <%
+        if(dataFromDB.length > 0) {
+            dataFromDB.forEach(function(data){
+                <h4> <%= data.author_name %> </h4>
+                <h4> <%= data.book_title %> </h4>
+                <h4> <%= data.language %> </h4>
+                <h4> <%= data.country %> </h4>
+                <h4> <%= data.page_number %> </h4>
+                <h4> <%= data.quote %> </h4>
+            })
+        }
+        %>
+    </div>
+</body>
+</html>

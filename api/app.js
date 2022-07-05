@@ -1,4 +1,4 @@
-var createError = require('http-errors');
+/*var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -36,6 +36,23 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});*/
+
+
+//new code
+const { createPool } = require('mysql');
+
+const pool = createPool({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "book_log",
+  connectionLimit: "100"
+})
+
+pool.query(`SELECT * FROM book_log.logs`, (error, result, fields) => {
+  if(error){ return console.log(error);}
+  return console.log(result);
 });
 
-module.exports = app;
+module.exports = pool
